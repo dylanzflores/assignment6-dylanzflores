@@ -1,33 +1,28 @@
 name: assignment6-yocto-test
+
 on:
   push:
     branches:
-      - '*'
+      - '*'  # Run on any branch push
 
 jobs:
   full-test:
     runs-on: self-hosted
+
     steps:
+      # Step 1: Checkout the repo
       - uses: actions/checkout@v3
         with:
           clean: false
           submodules: 'recursive'
 
+      # Step 2: Run the build script
       - name: Run build
         timeout-minutes: 600
-        run: |
-          docker run --rm \
-            -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
-            cuaesd/aesd-autotest:24-assignment6-yocto \
-            --workdir=${GITHUB_WORKSPACE} \
-            ./build.sh
+        run: ./build.sh
 
+      # Step 3: Run the full test script
       - name: Run full test
         timeout-minutes: 15
-        run: |
-          docker run --rm \
-            -v ${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE} \
-            cuaesd/aesd-autotest:24-assignment6-yocto \
-            --workdir=${GITHUB_WORKSPACE} \
-            ./full-test.sh
+        run: ./full-test.sh
 
