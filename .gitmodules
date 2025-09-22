@@ -5,3 +5,7 @@
 	path = poky
 	url = https://git.yoctoproject.org/poky
 	branch = kirkstone
+[submodule "buildroot"]
+	path = buildroot
+	url = https://git.yoctoproject.org/poky
+	branch = kirkstone
