@@ -3,7 +3,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 SRC_URI = "git://github.com/cu-ecen-aeld/assignments-3-and-later-dylanzflores.git;protocol=https;branch=main \
            file://aesdsocket.init"
-SRCREV = "e91eba79d896bc178f5a6acdd620a721efcb9776"
+SRCREV = "2ba9802d1f9ef5fcc33ca23995fcac439322b28a"
 
 PV = "1.0+git${SRCPV}"
 S = "${WORKDIR}/git/server"
